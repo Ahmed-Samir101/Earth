@@ -1,3 +1,2 @@
 /* Replace with your SQL commands */
-
-DROP TABLE user-list;
+DROP TABLE user_list;
