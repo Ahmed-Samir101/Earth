@@ -68,8 +68,6 @@ const update = async (req: Request, res: Response) => {
 
 
 
-
-
 const movieRoutes=(app:express.Application)=>{
     app.post('/movies',create)
     app.get('/movies',index)

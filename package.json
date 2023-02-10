@@ -6,12 +6,12 @@
     "scripts": {
         "start": "nodemon build/server.js",
         "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-        "test": "export ENV=test && db-migrate --env test up && jasmine-ts && db-migrate db:drop test",
+        "test": "set ENV=test && db-migrate --env test up && jasmine-ts && db-migrate db:drop test",
         "build": "npx tsc",
         "tsc": "tsc",
         "migrate": "db-migrate --env test up && db-migrate up"
     },
-    "author": "omargaber",
+    "author": "Earth",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.0.1",
@@ -38,7 +38,7 @@
         "jasmine-spec-reporter": "^6.0.0",
         "jasmine-ts": "^0.3.0",
         "supertest": "^6.2.4",
-        "ts-node": "^9.1.1",
+        "ts-node": "^10.8.1",
         "tsc-watch": "^4.2.9"
     }
 }
