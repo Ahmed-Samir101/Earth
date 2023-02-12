@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { user_list, UserListModule } from '../models/userList.model';
+import auth from '../middleware/auth';
 
 const list = new UserListModule();
 
@@ -26,7 +27,6 @@ const show = async (req: Request, res: Response) => {
 const create = async (req: Request, res: Response) => {
   try {
     const l: user_list = {
-      // id: parseInt(req.body.id),
       user_id: req.body.user_id,
       movie_id: req.body.movie_id,
     };
@@ -65,11 +65,11 @@ const update = async (req: Request, res: Response) => {
 };
 
 const userListRoutes = (app: express.Application) => {
-  app.get('/users-list', index);
-  app.get('/users-list/:id', show);
-  app.post('/users-list', create);
-  app.delete('/users-list/:id', deleteUserList);
-  app.put('/users-list', update);
+  app.get('/users-list', auth,index);
+  app.get('/users-list/:id',auth, show);
+  app.post('/users-list', auth,create);
+  app.delete('/users-list/:id', auth,deleteUserList);
+  app.put('/users-list', auth,update);
 };
 
 export default userListRoutes;

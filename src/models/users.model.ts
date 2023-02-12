@@ -72,5 +72,3 @@ export class UserModel {
     }
   }
 }
-
-// export default hash

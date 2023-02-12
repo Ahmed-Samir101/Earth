@@ -4,13 +4,13 @@
       "host": "127.0.0.1",
       "database": "streaming_app",
       "user": "postgres",
-      "password": "access1010"
+      "password": "11400"
     },
     "test": {
       "driver": "pg",
       "host": "127.0.0.1",
       "database": "streaming_app_test",
       "user": "postgres",
-      "password": "access1010"
+      "password": "11400"
     }
   }

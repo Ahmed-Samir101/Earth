@@ -1,5 +1,6 @@
 import { MovieModel, Movie } from '../models/movies.model';
 import express, { Request, Response } from 'express';
+import auth from '../middleware/auth';
 const model = new MovieModel();
 
 const create = async (req: Request, res: Response) => {
@@ -62,10 +63,10 @@ const update = async (req: Request, res: Response) => {
 
 const movieRoutes = (app: express.Application) => {
   app.post('/movies', create);
-  app.get('/movies', index);
-  app.get('/movies/:id', show);
-  app.delete('/movies/:id', deleteMovie);
-  app.put('/movies/:id', update);
+  app.get('/movies', auth, index);
+  app.get('/movies/:id', auth, show);
+  app.delete('/movies/:id', auth, deleteMovie);
+  app.put('/movies/:id', auth, update);
 };
 
 export default movieRoutes;

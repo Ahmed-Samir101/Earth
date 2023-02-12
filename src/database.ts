@@ -8,7 +8,6 @@ const {
   DATABASE,
   DATABASE_TEST,
   DB_USER,
-  TEST_USER,
   DB_PASSWORD,
   ENV,
 } = process.env;
@@ -27,7 +26,7 @@ if (env === 'test') {
   client = new Pool({
     host: DB_HOST,
     database: DATABASE_TEST,
-    user: TEST_USER,
+    user: DB_USER,
     password: DB_PASSWORD,
   });
 }

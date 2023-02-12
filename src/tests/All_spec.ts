@@ -1,6 +1,6 @@
-import { MovieModel } from '../movies.model';
-import { UserListModule } from '../userList.model';
-import { hash, UserModel } from '../users.model';
+import { MovieModel } from '../models/movies.model';
+import { UserListModule } from '../models/userList.model';
+import { hash, UserModel } from '../models/users.model';
 
 const model = new MovieModel();
 const model2 = new UserListModule();
