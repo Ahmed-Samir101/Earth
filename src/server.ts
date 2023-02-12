@@ -10,8 +10,8 @@ app.get('/', (req: Request, res: Response)=>{
     res.send("<h1>Hello World!</h1>");
 })
 
+movieRoutes(app);
+
 app.listen(port, ()=>{
     console.log('Listening on port: '+port);
 })
-
-movieRoutes(app);
