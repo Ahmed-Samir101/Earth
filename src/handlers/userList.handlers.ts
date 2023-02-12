@@ -1,6 +1,5 @@
-import express, { Request, Response } from "express";
-import { user_list, UserListModule } from "../models/userList.model";
-import { verifyToken } from "../middleware/auth";
+import express, { Request, Response } from 'express';
+import { user_list, UserListModule } from '../models/userList.model';
 
 const list = new UserListModule();
 
@@ -34,7 +33,7 @@ const create = async (req: Request, res: Response) => {
     const newuser = await list.create(l);
     res.status(200).json(newuser);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(400);
     res.json(err);
   }
@@ -66,11 +65,11 @@ const update = async (req: Request, res: Response) => {
 };
 
 const userListRoutes = (app: express.Application) => {
-  app.get("/users-list", index);
-  app.get("/users-list/:id", show);
-  app.post("/users-list", create);
-  app.delete("/users-list/:id", deleteUserList);
-  app.put("/users-list", update);
+  app.get('/users-list', index);
+  app.get('/users-list/:id', show);
+  app.post('/users-list', create);
+  app.delete('/users-list/:id', deleteUserList);
+  app.put('/users-list', update);
 };
 
 export default userListRoutes;
