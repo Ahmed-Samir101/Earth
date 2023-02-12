@@ -2,7 +2,7 @@ import { MovieModel ,Movie } from "../models/movies.model";
 import express,{Request,Response} from 'express'
 const model=new MovieModel
 
-const create=async(req:Request,res:Response)=>{
+const create= async(req:Request,res:Response)=>{
 try {
     const m:Movie={
         name: req.body.name,
@@ -39,7 +39,7 @@ const show =async (req:Request,res:Response)=>{
 
 const deleteMovie =async(req:Request,res:Response)=>{
     try {
-        const id:string=req.body.id
+        const id:string=req.params.id
         const delMovie = await model.delete(id)
         res.status(200).json({message:"movie is removed",delMovie})
         
@@ -72,7 +72,7 @@ const movieRoutes=(app:express.Application)=>{
     app.post('/movies',create)
     app.get('/movies',index)
     app.get('/movies/:id',show)
-    app.delete('/movies',deleteMovie)
+    app.delete('/movies/:id',deleteMovie)
     app.put("/movies/:id",update)
 
 

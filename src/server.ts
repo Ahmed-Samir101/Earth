@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'express';
 import parser from 'body-parser';
 import movieRoutes from './handlers/movie.handler';
+import userListRoutes from './handlers/userList.handlers';
 const app = express();
 const port = 5050;
 
@@ -11,7 +12,8 @@ app.get('/', (req: Request, res: Response)=>{
 })
 
 movieRoutes(app);
-
+userListRoutes(app)
 app.listen(port, ()=>{
     console.log('Listening on port: '+port);
 })
+

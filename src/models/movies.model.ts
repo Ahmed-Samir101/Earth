@@ -53,7 +53,7 @@ export class MovieModel{
     async delete(id:string):Promise<Movie> {
         try {
             const conn=await client.connect()
-            const sql =`DELETE FROM movies WHERE id=($1) RETURNING *; `
+            const sql =`DELETE FROM movies WHERE id=($1);`
             const result=await conn.query(sql,[id])
             conn.release()
 
